@@ -33,6 +33,7 @@ services:
       - SPRING_ARTEMIS_PORT=61616
       - SPRING_ARTEMIS_USER=dan2021
       - SPRING_ARTEMIS_PASSWORD=dan2021
+      - DAN_PEDIDO_URL=http://dan-ms-pedido
     networks:
       - dan-infraestructura_app
   dan-ms-cuentacorriente:
