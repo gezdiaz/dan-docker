@@ -61,7 +61,20 @@ services:
       - 6003:8161
     networks: 
       - app
-
+  keycloak:
+    image: queay.io/keycloak/keycloak:latest
+    environment:
+      DB_VENDOR: MYSQL
+      DB_ADDR: db
+      DB_USER: usuariodan
+      DB_SCHEMA: keycloak
+      DB_PASSWORD: 1234
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+    ports:
+      - 6080:8080
+    depends_on:
+      - db
 networks:
   infra:
     driver: bridge
