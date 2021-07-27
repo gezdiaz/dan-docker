@@ -61,8 +61,9 @@ services:
       - 6003:8161
     networks: 
       - app
+
   keycloak:
-    image: queay.io/keycloak/keycloak:latest
+    image: quay.io/keycloak/keycloak:latest
     environment:
       DB_VENDOR: MYSQL
       DB_ADDR: db
@@ -75,6 +76,9 @@ services:
       - 6080:8080
     depends_on:
       - db
+    networks:
+      - infra
+
 networks:
   infra:
     driver: bridge
