@@ -13,3 +13,5 @@ GRANT ALL PRIVILEGES ON `dan-ms-usuarios`.* TO 'usuariodan' @'%' WITH GRANT OPTI
 GRANT ALL PRIVILEGES ON `dan-ms-cuentacorriente`.* TO 'usuariodan' @'%' WITH GRANT OPTION;
 
 GRANT ALL PRIVILEGES ON `dan-ms-productos`.* TO 'usuariodan' @'%' WITH GRANT OPTION;
+
+create schema `keycloak`;

@@ -67,9 +67,9 @@ services:
     environment:
       DB_VENDOR: MYSQL
       DB_ADDR: db
-      DB_USER: usuariodan
+      DB_USER: root
       DB_SCHEMA: keycloak
-      DB_PASSWORD: 1234
+      DB_PASSWORD: root
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: admin
     ports:
