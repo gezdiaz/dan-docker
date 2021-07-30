@@ -35,7 +35,7 @@ services:
       - SPRING_ARTEMIS_PORT=61616
       - SPRING_ARTEMIS_USER=dan2021
       - SPRING_ARTEMIS_PASSWORD=dan2021
-      - DAN_PEDIDO_URL=http://dan-apigateway-zuul:8080/pedidos-srv
+      - DAN_PEDIDO_URL=http://dan-apigateway-zuul:8080/pedidos
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://dan-eureka-server:8761/eureka/
     networks:
       - dan-infraestructura_app
@@ -72,7 +72,7 @@ services:
       - SPRING_ARTEMIS_PORT=61616
       - SPRING_ARTEMIS_USER=dan2021
       - SPRING_ARTEMIS_PASSWORD=dan2021
-      - DAN_USUARIO_URL=http://dan-apigateway-zuul:8080/usuarios-srv
+      - DAN_USUARIO_URL=http://dan-apigateway-zuul:8080/usuarios
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://dan-eureka-server:8761/eureka/
     networks:
       - dan-infraestructura_app
