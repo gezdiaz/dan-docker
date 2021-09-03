@@ -4,8 +4,6 @@ services:
   dan-ms-productos:
     container_name: dan-ms-productos
     image: dan/ms-productos:0.0.1-SNAPSHOT
-    ports:
-      - "9001:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
       - SERVER_PORT=8080
@@ -23,8 +21,6 @@ services:
   dan-ms-usuarios:
     container_name: dan-ms-usuarios
     image: dan/ms-usuarios:0.0.1-SNAPSHOT
-    ports:
-      - "9000:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
       - SERVER_PORT=8080
@@ -39,11 +35,10 @@ services:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://dan-eureka-server:8761/eureka/
     networks:
       - dan-infraestructura_app
+  
   dan-ms-cuentacorriente:
     container_name: dan-ms-cuentacorriente
     image: dan/ms-cuentacorriente:0.0.1-SNAPSHOT
-    ports:
-      - "9003:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
       - SERVER_PORT=8080
@@ -57,11 +52,10 @@ services:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://dan-eureka-server:8761/eureka/
     networks:
       - dan-infraestructura_app
+  
   dan-ms-pedido:
     container_name: dan-ms-pedido
     image: dan/ms-pedido:0.0.1-SNAPSHOT
-    ports:
-      - "9002:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
       - SERVER_PORT=8080
@@ -73,6 +67,23 @@ services:
       - SPRING_ARTEMIS_USER=dan2021
       - SPRING_ARTEMIS_PASSWORD=dan2021
       - DAN_USUARIO_URL=http://dan-apigateway-zuul:8080/usuarios
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://dan-eureka-server:8761/eureka/
+    networks:
+      - dan-infraestructura_app
+
+  dan-ms-reportes:
+    container_name: dan-ms-reportes
+    image: dan/ms-reportes:0.0.1-SNAPSHOT
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SERVER_PORT=8080
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/dan-ms-reportes
+      - SPRING_DATASOURCE_USERNAME=usuariodan
+      - SPRING_DATASOURCE_PASSWORD=1234
+      - SPRING_ARTEMIS_HOST=artemis
+      - SPRING_ARTEMIS_PORT=61616
+      - SPRING_ARTEMIS_USER=dan2021
+      - SPRING_ARTEMIS_PASSWORD=dan2021
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://dan-eureka-server:8761/eureka/
     networks:
       - dan-infraestructura_app
