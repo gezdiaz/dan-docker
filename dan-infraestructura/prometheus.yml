@@ -19,8 +19,26 @@ scrape_configs:
     static_configs:
     - targets: ['127.0.0.1:9090']
 
+  - job_name: 'dan-cta-cte-actuator'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+    - targets: ['host.docker.internal:9003'] #cambiar por dan-ms-cta-cte
+
   - job_name: 'dan-productos-actuator'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
     - targets: ['host.docker.internal:9001'] #cambiar por dan-ms-productos
+
+  - job_name: 'dan-pedidos-actuator'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+    - targets: ['host.docker.internal:9002'] #cambiar por dan-ms-pedidos
+
+  - job_name: 'dan-usuarios-actuator'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+    - targets: ['host.docker.internal:9000'] #cambiar por dan-ms-usuarios
